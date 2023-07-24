@@ -1,0 +1,30 @@
+﻿@model ContactsModel
+@{
+    ViewData["Title"] = "Contacts Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    @using (Html.BeginForm("ContactSubmission", "Contacts", FormMethod.Post))
+    {
+        @*<form>
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" name="fname" required><br>
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lname" name="lname" required><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br>
+            <input type="submit" value="Submit">
+        </form>*@
+        <table>
+            First Name: @Html.TextBoxFor(s=>s.FirstName, new { @required = "required"});
+            Last Name: @Html.TextBoxFor(s=>s.LastName, new { @required = "required"});
+            Email:  @Html.TextBoxFor(s=>s.Email, new { @required = "required", @type = "email"});
+            <input type="submit" value="Submit"/>
+        </table>
+    }
+    First Name: @Html.DisplayFor(s=>s.FirstName);
+    Last Name: @Html.DisplayFor(s=>s.LastName);
+    Email: @Html.DisplayFor(s=>s.Email);
+
+</div>
